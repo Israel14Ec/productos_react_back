@@ -11,12 +11,14 @@ import swaggerSpec, { swaggerUiOptions } from "./config/swagger";
 export async function connectDB() {
     try {
         await db.authenticate(); // Autenticarse a la base de datos
-        await db.sync(); // Sincroniza con los modelos. Asegúrate de usar await aquí.
+        await db.sync({force: true}); // Sincroniza con los modelos. 
         console.log(colors.blue('Conexión exitosa a la base de datos'));
     } catch (error) {
         console.log(colors.bgRed.white('Hubo un error al conectar en la DB'));
     }
 }
+
+connectDB()
 
 // Instancia de express
 const server = express();
