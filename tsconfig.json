@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist", //Creala carpeta dist
+        "rootDir": "./src", //Es la carpeta raíz
+        "lib": ["ESNext"], //Soporte para js versión que se va a ejecutar
+        "target": "ESNext",
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "strict": false,
+        "sourceMap": true,
+        "esModuleInterop": true, //Permite importar en commodjs
+        "declaration": true, //Declaración de archivos
+        "experimentalDecorators": true, //Habilita decoradores
+        "emitDecoratorMetadata": true //Habilita la metadata
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["src/**/*.test.ts"] //Sacar archivos de la compilación
+}
