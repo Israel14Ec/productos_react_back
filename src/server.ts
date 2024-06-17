@@ -11,7 +11,7 @@ import swaggerSpec, { swaggerUiOptions } from "./config/swagger";
 export async function connectDB() {
     try {
         await db.authenticate(); // Autenticarse a la base de datos
-        await db.sync({force: true}); // Sincroniza con los modelos. 
+        await db.sync(); // Sincroniza con los modelos. 
         console.log(colors.blue('Conexión exitosa a la base de datos'));
     } catch (error) {
         console.log(colors.bgRed.white('Hubo un error al conectar en la DB'));
@@ -28,6 +28,7 @@ const corsOptions : CorsOptions = {
     origin: function(origin, callback) {
         if(origin === process.env.FRONTEND_URL){
             callback(null, true) //Permite la conexión
+            console.log('Se permitio la conexión')
         } else {
             callback(new Error('Error de cors'))
         }
